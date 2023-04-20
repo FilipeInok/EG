@@ -7,10 +7,10 @@ namespace UFCD10792.Models
         [Key]
         public int id { get; set; }
         [Required]
-        public string code { get; set; }
-        public string name { get; set; }
+        public string? code { get; set; }
+        public string? name { get; set; }
         public int hours { get; set; }
-        public DateTime beguiningDate { get; set; }
+        public DateTime beginingDate { get; set; } = DateTime.Now;
     }
 
 
