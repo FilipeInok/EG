@@ -5,3 +5,24 @@
 
 <h1>Index UFCD</h1>
 
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Hours</th>
+            <th>Beginning Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td>@obj.code</td>
+                <td>@obj.name</td>
+                <td>@obj.hours</td>
+                <td>@obj.beginingDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
