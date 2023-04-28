@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Regioes>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index Vinhos</h1>
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descricao</th>
+         </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td>@obj.name</td>
+                <td>@obj.description</td>
+            </tr>
+        }
+    </tbody>
+</table>
