@@ -17,6 +17,19 @@ namespace UFCD10792.Controllers
             IEnumerable<UFCD> objUFCDlist = _db.UFCD;
             return View(objUFCDlist);
         }
-
+        //get
+        public IActionResult Create()
+        {
+            return View();
+        }
+        //set(post)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(UFCD objUFCD)
+        {
+            _db.UFCD.Add(objUFCD);
+            _db.SaveChanges();
+            return View();
+        }
     }
 }
