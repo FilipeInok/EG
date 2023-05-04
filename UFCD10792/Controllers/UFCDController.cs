@@ -29,7 +29,7 @@ namespace UFCD10792.Controllers
         {
             _db.UFCD.Add(objUFCD);
             _db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
