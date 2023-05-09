@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using UFCD10792.Data;
 using UFCD10792.Models;
 
@@ -27,9 +28,17 @@ namespace UFCD10792.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(UFCD objUFCD)
         {
-            _db.UFCD.Add(objUFCD);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if (objUFCD.name == objUFCD.code)
+            {
+                ModelState.AddModelError("code", "Name não pode ser igual ao Code");
+            }
+            if (ModelState.IsValid)
+            {
+                _db.UFCD.Add(objUFCD);
+                _db.SaveChanges();
+                return RedirectToAction("Index"); 
+            }
+            return View(objUFCD);
         }
     }
 }
